@@ -1,0 +1,4 @@
+interface:
+  display_name: "Professional Resume PDF"
+  short_description: "Build polished two-page resume PDFs"
+  default_prompt: "Use $build-professional-resume-pdf to turn my resume content into a polished two-page PDF without changing the wording."

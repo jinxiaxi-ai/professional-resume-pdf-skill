@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>示例姓名 - 专业简历</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #fff; }
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: #151b25;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 21px;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      padding: 9mm 10mm 10mm;
+      overflow: hidden;
+      page-break-after: always;
+      background: #fff;
+    }
+    .page:last-child { page-break-after: auto; }
+    .page.page-2 { padding-top: 10mm; }
+    .hero {
+      height: 32mm;
+      display: grid;
+      grid-template-columns: 1fr 22mm;
+      align-items: center;
+      border-bottom: 0.25mm solid #d9e2ec;
+      margin-bottom: 2.8mm;
+    }
+    .identity { text-align: center; padding-left: 22mm; }
+    .name {
+      margin-bottom: 1.3mm;
+      color: #111827;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.15;
+    }
+    .contact, .homepage { color: #151b25; font-size: 12px; line-height: 1.45; }
+    .contact a { color: #151b25; text-decoration: none; }
+    .homepage a {
+      color: #075eb8;
+      text-decoration: underline;
+      text-underline-offset: 1px;
+    }
+    .portrait {
+      width: 18mm;
+      height: 22mm;
+      object-fit: cover;
+      justify-self: end;
+    }
+    .section-title {
+      height: 8mm;
+      display: flex;
+      align-items: center;
+      margin: 2mm 0 2.2mm;
+      padding-left: 4.5mm;
+      border-left: 1.2mm solid #0f4b83;
+      background: #ebf1f8;
+      color: #0f4b83;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .section-title.first { margin-top: 0; }
+    .education-item { margin-bottom: 2.2mm; }
+    .education-head, .entry-head, .project-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      column-gap: 4mm;
+    }
+    .school, .company, .project-name { color: #0f4b83; font-weight: 700; }
+    .school, .company, .project-name { font-size: 13px; }
+    .date, .project-company {
+      color: #5c6673;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .education-detail { margin-top: 0.4mm; }
+    ul { margin: 0; padding-left: 4.8mm; }
+    li { padding-left: 0.8mm; }
+    li::marker { color: #0f67ad; font-size: 0.72em; }
+    .summary-list li { margin-bottom: 0.7mm; }
+    .entry { margin-bottom: 2mm; }
+    .entry + .entry {
+      padding-top: 2.2mm;
+      border-top: 0.25mm solid #d8e2ec;
+    }
+    .entry-head { margin-bottom: 2mm; }
+    .entry-left { display: flex; align-items: baseline; flex-wrap: wrap; }
+    .divider { margin: 0 1.6mm; color: #66717e; }
+    .role { color: #111827; font-size: 12px; font-weight: 700; }
+    .descriptor { color: #687382; font-size: 12px; font-weight: 400; }
+    .work-list li { margin-bottom: 1.8mm; }
+    .work-list li::marker { color: #000; }
+    strong { color: #070b12; font-weight: 700; }
+    .project { margin-bottom: 2.8mm; }
+    .project + .project {
+      padding-top: 2.4mm;
+      border-top: 0.25mm solid #d8e2ec;
+    }
+    .project-head { margin-bottom: 1.6mm; }
+    .project-list li { margin-bottom: 1.45mm; }
+    ol { margin: 0.4mm 0 1.2mm; padding-left: 6.5mm; }
+    ol li { margin-bottom: 1.35mm; padding-left: 0; }
+    ol li::marker { color: #151b25; font-size: 1em; }
+    .skills li { margin-bottom: 1.1mm; }
+  </style>
+</head>
+<body>
+  <section class="page page-1">
+    <header class="hero">
+      <div class="identity">
+        <div class="name">示例姓名</div>
+        <div class="contact">
+          <a href="tel:+8613800000000">138 0000 0000</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="mailto:name@example.com">name@example.com</a>
+        </div>
+        <div class="homepage">个人主页：<a href="https://example.com/">example.com</a></div>
+      </div>
+      <img class="portrait" src="portrait-placeholder.svg" alt="证件照占位符">
+    </header>
+
+    <div class="section-title first">教育经历</div>
+    <div class="education-item">
+      <div class="education-head">
+        <span class="school">示例大学</span>
+        <span class="date">2024年09月 - 2026年06月</span>
+      </div>
+      <div class="education-detail">数据科学 硕士 全日制</div>
+    </div>
+    <div class="education-item">
+      <div class="education-head">
+        <span class="school">示例理工大学</span>
+        <span class="date">2018年09月 - 2022年06月</span>
+      </div>
+      <div class="education-detail">统计学 本科 全日制</div>
+    </div>
+
+    <div class="section-title">个人总结</div>
+    <ul class="summary-list">
+      <li>拥有数据产品与数据分析经验，能够围绕业务问题完成数据建设、分析评估与决策支持。</li>
+      <li>关注 AI 与数据工具在真实业务场景中的应用，具备跨团队协作和项目落地能力。</li>
+    </ul>
+
+    <div class="section-title">工作经历</div>
+    <article class="entry">
+      <div class="entry-head">
+        <div class="entry-left">
+          <span class="company">示例智能科技有限公司</span><span class="divider">|</span><span class="role">数据产品经理</span>
+        </div>
+        <span class="date">2023年07月 - 2025年06月</span>
+      </div>
+      <ul class="work-list">
+        <li><strong>数据产品：</strong>负责自助分析工具的规划与落地，覆盖指标查询、异常诊断与报表生成等场景，持续提升业务团队的分析效率。</li>
+        <li><strong>数据基建：</strong>承接核心业务的数据采集需求，设计并跟进埋点上线及质量监控，完善明细层、汇总层与应用层数据建设。</li>
+        <li><strong>数据分析：</strong>负责核心指标与重点版本监控，沉淀指标波动分析方法，搭建自动化归因工具并输出产品优化建议。</li>
+        <li><strong>实验评估：</strong>搭建 A/B 实验评估框架，围绕核心指标和用户分层输出实验结论，支持产品迭代决策。</li>
+        <li><strong>算法协作：</strong>参与用户分群与流失预测模型建设，完成特征设计、效果评估和业务应用方案，支持精细化运营。</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <div class="entry-left">
+          <span class="company">示例内容科技有限公司</span><span class="divider">|</span><span class="role">数据分析师</span><span class="divider">|</span><span class="descriptor">内容社区产品</span>
+        </div>
+        <span class="date">2021年07月 - 2023年06月</span>
+      </div>
+      <ul class="work-list">
+        <li><strong>内容分析：</strong>搭建内容质量评估体系，结合内容理解、特征工程和模型结果识别优质内容，支持推荐策略与运营扶持。</li>
+        <li><strong>数据采集：</strong>从 0-1 建设核心场景埋点体系，制定上报规范并审核埋点方案，建设验收工具以提升数据质量。</li>
+        <li><strong>数据建设：</strong>负责指标体系和数据中间表建设，提升日常分析效率，并支持创作者服务功能的数据能力建设。</li>
+        <li><strong>数据应用：</strong>建设用户路径分析模型，通过数据洞察提出产品优化和策略迭代建议，并完成效果评估。</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <div class="entry-left">
+          <span class="company">示例数字科技有限公司</span><span class="divider">|</span><span class="role">数据实习生</span>
+        </div>
+        <span class="date">2020年06月 - 2020年09月</span>
+      </div>
+      <ul class="work-list">
+        <li><strong>专项分析：</strong>协助完成业务数据监控、异常排查与专题分析，沉淀可复用的数据口径和分析结论。</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="page page-2">
+    <div class="section-title first">项目经历</div>
+
+    <article class="project">
+      <div class="project-head">
+        <span class="project-name">自助分析平台建设</span>
+        <span class="project-company">示例智能科技有限公司</span>
+      </div>
+      <ul class="project-list">
+        <li><strong>项目背景：</strong>业务侧存在大量重复取数与指标排查需求，人工响应成本高，缺少统一的自助分析入口。</li>
+        <li><strong>项目描述：</strong></li>
+      </ul>
+      <ol>
+        <li>梳理业务高频场景和用户需求，完成产品方案、数据口径与迭代计划设计。</li>
+        <li>建设指标查询与异常诊断能力，支持多维下钻并输出可追溯的分析结论。</li>
+        <li>建设智能 SQL 辅助生成能力，基于指标口径和模板降低业务取数门槛。</li>
+        <li>完善使用监控和反馈闭环，持续优化功能覆盖率与结果准确性。</li>
+      </ol>
+      <ul class="project-list">
+        <li><strong>项目成果：</strong>平台覆盖多个高频分析场景，减少重复取数与人工排查工作，提升业务分析效率。</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <span class="project-name">用户留存预测模型</span>
+        <span class="project-company">示例智能科技有限公司</span>
+      </div>
+      <ul class="project-list">
+        <li><strong>项目背景：</strong>用户活跃与留存增长进入瓶颈期，业务侧需要提前识别潜在流失用户并制定分层策略。</li>
+        <li><strong>项目描述：</strong></li>
+      </ul>
+      <ol>
+        <li>分析历史行为与回流曲线，确定流失定义，构建训练样本及标签。</li>
+        <li>构建用户画像、消费行为与交互深度等特征，完成异常值处理和特征筛选。</li>
+        <li>对比多种分类模型，结合 AUC、召回率和 Top-K 命中率评估模型效果。</li>
+        <li>搭建日级更新预测任务，输出用户风险分级并支持运营分层触达。</li>
+      </ol>
+      <ul class="project-list">
+        <li><strong>项目成果：</strong>支持运营优先触达高风险用户，减少无效推送并提升召回策略的资源使用效率。</li>
+      </ul>
+    </article>
+
+    <div class="section-title">技能/证书及其他</div>
+    <ul class="skills">
+      <li><strong>技能：</strong>SQL、Python、Excel、数据可视化</li>
+      <li><strong>证书：</strong>请填写与目标岗位相关的证书或竞赛经历</li>
+      <li><strong>语言：</strong>中文（母语）、英语（工作沟通）</li>
+      <li><strong>兴趣爱好：</strong>运动、阅读、旅行</li>
+    </ul>
+  </section>
+</body>
+</html>
