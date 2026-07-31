@@ -5,14 +5,14 @@ description: Create, restyle, or update polished Chinese or bilingual resume PDF
 
 # Build Professional Resume PDF
 
-Produce a concise A4 resume with strong hierarchy, compact spacing, clickable links, and deterministic visual QA. Preserve the user's wording unless they explicitly authorize content edits.
+Apply the bundled navy-and-white visual system to resume content and produce a concise A4 PDF with strong hierarchy, compact spacing, clickable links, and deterministic visual QA. Treat the bundled text as an anonymous demonstration, not as a content model. Preserve the user's wording unless they explicitly authorize content edits.
 
 ## Workflow
 
 1. Read all source files and identify the authoritative content version.
 2. Record the requested changes and distinguish content edits from style edits.
-3. Copy `assets/resume-template.html` and `assets/portrait-placeholder.svg` into a task-local working directory.
-4. Replace the fictional example content with the user's content. Keep section order unless the user asks to restructure it.
+3. Read `references/style-system.md`, then copy `assets/resume-template.html`, `assets/resume-style.css`, and `assets/portrait-placeholder.svg` into a task-local working directory.
+4. Replace all fictional example content with the user's content. Do not borrow example claims, metrics, employers, or section wording. Keep section order unless the user asks to restructure it.
 5. Preserve emphasized labels with `<strong>` and keep company, role, and date on one header row when space allows.
 6. Replace the portrait source with the user's local image only when supplied. Otherwise retain the generic placeholder or remove the portrait cleanly.
 7. Render the HTML with `scripts/render_resume.py`.
@@ -30,18 +30,20 @@ Produce a concise A4 resume with strong hierarchy, compact spacing, clickable li
 - Use explicit schemes in links: `mailto:`, `tel:`, and `https://` or a user-confirmed `http://` fallback.
 - Publish only sanitized examples. Never add a real name, portrait, phone number, email address, home page, or employer history to a public repository without confirmation.
 
-## Layout Rules
+## Style and Layout Rules
 
 - Keep A4 pages at `210mm × 297mm` with `@page { margin: 0; }`.
 - Start with 10mm side padding, 12px body text, and 21px line height.
 - Use dark navy for section titles and company names, near-black body text, and pure-black work-experience bullets.
 - Use blue and underline only for clearly clickable portfolio links in the top bar.
 - Keep section bars, company headers, role names, dates, and bold bullet labels visually distinct.
+- Keep reusable visual tokens in `assets/resume-style.css`; do not duplicate the complete stylesheet inside task HTML.
+- Use `.hero.no-portrait` when omitting the portrait so the identity block remains centered.
 - Prefer small spacing adjustments over shrinking body text below 11px.
 - Keep work-experience headers attached to at least one following bullet.
 - Avoid bundling proprietary fonts. Use the font stack in the template and configure a local `@font-face` only when the user's machine already has the font.
 
-Read `references/customization-and-qa.md` before making structural layout changes, fitting unusually dense content, changing fonts, or preparing a public repository.
+Read `references/customization-and-qa.md` before making structural layout changes, fitting unusually dense content, changing fonts, or preparing a public repository. Use `references/style-system.md` as the source of truth for the visual system.
 
 ## Commands
 

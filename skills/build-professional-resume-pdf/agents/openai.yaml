@@ -1,4 +1,5 @@
 interface:
-  display_name: "Professional Resume PDF"
-  short_description: "Build polished two-page resume PDFs"
-  default_prompt: "Use $build-professional-resume-pdf to turn my resume content into a polished two-page PDF without changing the wording."
+  display_name: "Professional Resume Style PDF"
+  short_description: "Apply a polished navy A4 resume style"
+  brand_color: "#0F4B83"
+  default_prompt: "Use $build-professional-resume-pdf to apply this professional A4 resume style to my content without changing the wording."

@@ -7,6 +7,7 @@ import argparse
 from pathlib import Path
 import re
 import sys
+import unicodedata
 
 try:
     from pypdf import PdfReader
@@ -15,7 +16,8 @@ except ImportError as exc:
 
 
 def compact(value: str) -> str:
-    return re.sub(r"\s+", "", value)
+    normalized = unicodedata.normalize("NFKC", value)
+    return re.sub(r"\s+", "", normalized)
 
 
 def annotations(reader: PdfReader) -> list[str]:

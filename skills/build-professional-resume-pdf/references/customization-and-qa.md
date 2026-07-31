@@ -11,7 +11,7 @@
 
 ## Editing the template
 
-Copy the HTML and SVG assets into a task-local directory before editing. Replace the fictional example content section by section. Duplicate or remove complete `.education-item`, `.entry`, and `.project` blocks; do not leave unmatched tags.
+Copy the HTML, CSS, and SVG assets into a task-local directory before editing. Replace the fictional example content section by section. Duplicate or remove complete `.education-item`, `.entry`, and `.project` blocks; do not leave unmatched tags. Keep visual tokens in `resume-style.css` so the HTML remains content-focused.
 
 Keep content and formatting changes separate. When a user requests one textual change, extract text from the previous and new PDF, normalize whitespace, and confirm that the new text equals the old text with only the requested replacement.
 
@@ -19,7 +19,7 @@ Use `<strong>` for short bullet prefixes such as `数据分析：` rather than b
 
 ## Typography and spacing
 
-The public template uses this fallback stack:
+The public stylesheet uses this fallback stack:
 
 ```css
 font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
@@ -37,7 +37,7 @@ Recommended starting values:
 - Work bullet gap: 1.8mm
 - Entry header-to-body gap: 2mm
 
-Change one spacing variable at a time and re-render. A one-pixel font change can alter many line wraps.
+Edit the custom properties at the top of `resume-style.css` for global color or typography changes. Change one spacing variable at a time and re-render. A one-pixel font change can alter many line wraps.
 
 ## Fitting dense content
 
@@ -59,7 +59,7 @@ Never hide overflow, clip text, or create a near-empty extra page to claim the r
 - Visible homepage text may omit the scheme, but the `href` must not.
 - Use only the homepage link color in the top bar when the user wants other contact text to remain black.
 
-For portraits, use a supplied local file and an absolute file URI or copy the image next to the HTML. Preserve aspect ratio with `object-fit: cover`. Remove the portrait column and identity offset together when no portrait is wanted.
+For portraits, use a supplied local file and an absolute file URI or copy the image next to the HTML. Preserve aspect ratio with `object-fit: cover`. When no portrait is wanted, add `no-portrait` to the `.hero` class and remove the image. Remove the homepage row when no homepage is supplied.
 
 ## Visual QA
 
@@ -76,6 +76,7 @@ Render every page to PNG at 150–180 DPI and inspect it at full size. Confirm:
 - text remains readable at normal PDF zoom.
 
 Use `verify_pdf.py` after visual inspection. Text extraction cannot prove layout quality.
+The verifier normalizes Unicode compatibility forms before matching Chinese text because some PDF font mappings expose CJK radicals instead of their unified ideographs.
 
 ## Public-repository privacy
 
