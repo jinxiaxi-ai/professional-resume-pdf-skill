@@ -1,12 +1,13 @@
 # Professional Resume PDF Skill
 
-A reusable Codex Skill for turning Chinese or bilingual resume content into a polished one-to-two-page A4 PDF. It preserves the user's wording by default, supports clickable contact links, and includes deterministic render and verification scripts.
+A reusable Codex Skill for applying a professional navy-and-white visual system to Chinese or bilingual resume content and producing a polished one-to-two-page A4 PDF. It preserves the user's wording by default, keeps style separate from content, supports clickable contact links, and includes deterministic render and verification scripts.
 
 The bundled template uses fictional content and a generic portrait placeholder. It contains no real resume, portrait, employer history, phone number, email address, or personal domain.
 
 ## What it does
 
 - creates a professional navy-and-white resume layout;
+- keeps the reusable palette, typography, spacing, and component rules in a standalone CSS file;
 - keeps company, role, and date visually distinct;
 - preserves bold labels inside experience bullets;
 - produces clickable phone, email, and portfolio links;
@@ -73,9 +74,11 @@ skills/build-professional-resume-pdf/
 ├── agents/openai.yaml
 ├── assets/
 │   ├── portrait-placeholder.svg
+│   ├── resume-style.css
 │   └── resume-template.html
 ├── references/
-│   └── customization-and-qa.md
+│   ├── customization-and-qa.md
+│   └── style-system.md
 └── scripts/
     ├── render_resume.py
     └── verify_pdf.py
